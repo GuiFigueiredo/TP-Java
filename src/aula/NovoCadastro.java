@@ -1,6 +1,8 @@
-package newcadastro;
+package aula;
 
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -9,6 +11,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
@@ -57,6 +60,9 @@ public class NovoCadastro extends JFrame {
 		JLabel Estado = new JLabel("Estado");
 		JComboBox cmbEst = new JComboBox();
 		
+		// janela com os dados salvos
+		JLabel Dados = new JLabel("Dados:");
+		JTextArea txtdados= new JTextArea();
 		public NovoCadastro() {
 			super("Tela de Cadastro");
 			
@@ -184,14 +190,47 @@ public class NovoCadastro extends JFrame {
 		
 		paine.add(Salvar);
 		Salvar.setBounds(480, 300, 100, 30);
+		Salvar.addActionListener(new ActionListener() {
+			public void actionPerfomed(ActionEvent e) {
+				String informacoes = txtnome.getText()+txtendereco.getText()+ txtcidade.getText()+txtbairro.getText()+txttelefone.getText()+txtrg.getText()+txtcep.getText()+txtcell.getText()+txtcpf.getText();
+				
+			}
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+		
+		});
+		
 		paine.add(Imprimir);
 		Imprimir.setBounds(600, 300, 100, 30);
+		Imprimir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(txtdados.getText().equals("")) {
+					String informacoes = txtnome.getText()+txtendereco.getText()+txtcidade.getText()+txtbairro.getText()+txttelefone.getText()+txtrg.getText()+txtcep.getText()+txtcell.getText()+txtcpf.getText();
+					txtdados.setLineWrap(true);
+					txtdados.setText(informacoes);
+					
+				}
+			}
+		});
+		
+		paine.add(Dados);
+		Dados.setBounds(20, 280, 80, 30);
+		paine.add(txtdados);
+		txtdados.setBounds(20, 320, 400, 250);
+		
+		
+		
 		
 		
 			
 			this.setLayout(null);
 			this.setVisible(true);
-			this.setSize(800, 400);
+			this.setSize(800, 700);
 			this.setResizable(false);
 
 		}
