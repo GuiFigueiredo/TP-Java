@@ -13,7 +13,7 @@ public class Alunos {
 	public void setId(Integer id) {
 		this.id= id;
 	}
-	public String getNOme() {
+	public String getNome() {
 		return nome;
 	}
 	public void setNome(String Nome) {
